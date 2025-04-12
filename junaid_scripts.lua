@@ -78,3 +78,28 @@ end)
 closeButton.MouseButton1Click:Connect(function()
     screenGui:Destroy()
 end)
+-- Add to your existing GUI script
+
+-- Create Style Buttons
+local styles = {"Isagi", "Rin", "Kaiser", "Shidou", "Barou", "Nagi", "Reo", "Bachira", "Kunigami", "Chigiri"}
+local yOffset = 220
+
+for i, style in ipairs(styles) do
+    local button = Instance.new("TextButton")
+    button.Size = UDim2.new(0.8, 0, 0, 30)
+    button.Position = UDim2.new(0.1, 0, 0, yOffset)
+    button.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.Font = Enum.Font.SourceSans
+    button.TextSize = 18
+    button.Text = style
+    button.Parent = mainFrame
+
+    button.MouseButton1Click:Connect(function()
+        print("Switched to style: " .. style)
+        -- Placeholder for actual style change function
+        -- Example: game:GetService("ReplicatedStorage").ChangeStyle:FireServer(style)
+    end)
+
+    yOffset = yOffset + 35
+end
